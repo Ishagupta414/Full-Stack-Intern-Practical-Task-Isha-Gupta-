@@ -1,42 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import pool from "@/lib/db";
-import type {
+import {
   TaskStatus,
   CreateTaskInput,
-  Task,
 } from "@/types/task";
-
-const DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
-
-const demoTasks: Task[] = [
-  {
-    id: 1,
-    title: "Complete Mini Task Board",
-    status: "todo",
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: 2,
-    title: "Learn Next.js API Routes",
-    status: "in-progress",
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: 3,
-    title: "Connect MySQL Database",
-    status: "done",
-    created_at: new Date().toISOString(),
-  },
-];
 
 // GET /api/tasks
 export async function GET() {
-  // Vercel demo mode
-  if (DEMO_MODE) {
-    return NextResponse.json(demoTasks);
-  }
-
-  // Local MySQL mode
   try {
     const [rows] = await pool.query(
       "SELECT id, title, status, created_at FROM tasks ORDER BY created_at DESC"
@@ -83,19 +53,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Vercel demo mode
-    if (DEMO_MODE) {
-      const newTask: Task = {
-        id: Date.now(),
-        title,
-        status,
-        created_at: new Date().toISOString(),
-      };
-
-      return NextResponse.json(newTask, { status: 201 });
-    }
-
-    // Local MySQL mode
     const [result] = await pool.execute(
       "INSERT INTO tasks (title, status) VALUES (?, ?)",
       [title, status]
