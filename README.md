@@ -27,7 +27,7 @@ Next.js, TypeScript, React, Node.js API routes and MySQL.
 
 
 ## Project Structure
-
+```text
 task_board/
 │
 ├── app/
@@ -53,6 +53,7 @@ task_board/
 ├── .env.local
 ├── package.json
 └── README.md
+```
 
 ## API Endpoints
 
