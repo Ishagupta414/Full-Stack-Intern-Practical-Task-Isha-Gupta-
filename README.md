@@ -25,15 +25,35 @@ Next.js, TypeScript, React, Node.js API routes and MySQL.
 - MySQL persistence
 - Shared TypeScript types
 
-## Architecture
 
-The application uses Next.js App Router with Next.js
-Route Handlers for the backend API.
+## Project Structure
 
-I chose Next.js API routes instead of a separate Express
-server because the assignment allows either approach and
-using Next.js Route Handlers keeps the frontend and backend
-in a single application while still providing REST-style APIs.
+```text
+task_board/
+│
+├── app/
+│   ├── api/
+│   │   └── tasks/
+│   │       ├── route.ts
+│   │       └── [id]/
+│   │           └── route.ts
+│   │
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── lib/
+│   └── db.ts
+│
+├── types/
+│   └── task.ts
+│
+├── public/
+│
+├── database.sql
+├── .env.local
+├── package.json
+└── README.md
 
 ## API Endpoints
 
@@ -100,6 +120,3 @@ DB_PORT=3306
 
 npm run dev
 
-Open:
-
-http://localhost:3000
