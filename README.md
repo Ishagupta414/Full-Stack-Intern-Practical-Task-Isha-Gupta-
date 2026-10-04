@@ -28,7 +28,6 @@ Next.js, TypeScript, React, Node.js API routes and MySQL.
 
 ## Project Structure
 
-```text
 task_board/
 │
 ├── app/
