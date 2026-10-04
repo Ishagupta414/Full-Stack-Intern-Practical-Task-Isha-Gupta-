@@ -96,7 +96,7 @@ Columns:
 
 ### 1. Clone the repository
 
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/Ishagupta414/Full-Stack-Intern-Practical-Task-Isha-Gupta-
 
 ### 2. Install dependencies
 
